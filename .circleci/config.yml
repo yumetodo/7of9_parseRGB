@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  gcc_8_2:
+    docker:
+      - image: enumack/buildcontainers:gcc-8.2
+    steps:
+      - checkout
+      - run: mkdir -p build_gcc
+      - run: cd build_gcc
+      - run: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX ..
+      - run: make run_test
+  gcc_4_8:
+    docker:
+      - image: enumack/buildcontainers:gcc-4.8
+    steps:
+      - checkout
+      - run: mkdir -p build_gcc
+      - run: cd build_gcc
+      - run: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX ..
+      - run: make run_test
+  clang_7_0_0:
+    docker:
+      - image: enumack/buildcontainers:clang-7.0.0
+    steps:
+      - checkout
+      - run: mkdir -p build_clang
+      - run: cd build_clang
+      - run: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX ..
+      - run: make run_test
+  clang_3_4:
+    docker:
+      - image: enumack/buildcontainers:clang-3.4
+    steps:
+      - checkout
+      - run: mkdir -p build_clang
+      - run: cd build_clang
+      - run: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX ..
+      - run: make run_test
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - gcc_8_2
+      - gcc_4_8
+      - clang_7_0_0
+      - clang_3_4
