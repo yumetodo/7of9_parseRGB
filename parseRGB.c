@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-bool parseRGB(char *srcPtr, uint8_t *Red, uint8_t *Green, uint8_t *Blue)
+bool parseRGB(const char *srcPtr, uint8_t *Red, uint8_t *Green, uint8_t *Blue)
 {
 	if (strlen(srcPtr) != 6) {
 		return false;

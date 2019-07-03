@@ -5,7 +5,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif //__cplusplus
-bool parseRGB(char *srcPtr, uint8_t *Red, uint8_t *Green, uint8_t *Blue);
+bool parseRGB(const char *srcPtr, uint8_t *Red, uint8_t *Green, uint8_t *Blue);
 #ifdef __cplusplus
 }
 #endif //__cplusplus
