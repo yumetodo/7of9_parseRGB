@@ -1,6 +1,9 @@
 ﻿cmake_minimum_required(VERSION 2.8.12)
 
 project(libparseRGB C)
+set(CMAKE_C_STANDARD 11) # C++11...
+set(CMAKE_C_STANDARD_REQUIRED ON) #...is required...
+set(CMAKE_C_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 
 # 1. INTERFACE_INCLUDE_DIRECTORIES にソースディレクトリとビルドディレクトリを自動追加する。
 set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
