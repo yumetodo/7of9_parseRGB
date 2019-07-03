@@ -16,5 +16,6 @@ IUTEST(parseRGB, parseRGB)
     using T = std::tuple<std::uint8_t, std::uint8_t, std::uint8_t>;
     IUTEST_ASSERT_EQ((T{222, 173, 190}), parseRGB("DEADBE"));
     IUTEST_ASSERT_EQ(std::nullopt, parseRGB("GHIJKL"));
-    IUTEST_ASSERT_EQ((T{165, 165, 165}), parseRGB("DEADBE"));
+    IUTEST_ASSERT_EQ((T{165, 165, 165}), parseRGB("A5A5A5"));
+    IUTEST_ASSERT_EQ(std::nullopt, parseRGB("0FH00A"));
 }
