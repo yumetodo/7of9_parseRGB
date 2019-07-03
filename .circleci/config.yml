@@ -12,6 +12,9 @@ jobs:
           command: pwd && ls -l
           working_directory: build_gcc
       - run:
+          name: git submodule
+          command: git submodule update --init
+      - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
           working_directory: build_gcc
@@ -26,6 +29,9 @@ jobs:
       - run:
           command: pwd && ls -l
           working_directory: build_gcc
+      - run:
+          name: git submodule
+          command: git submodule update --init
       - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
@@ -42,6 +48,9 @@ jobs:
           command: pwd && ls -l
           working_directory: build_gcc
       - run:
+          name: git submodule
+          command: git submodule update --init
+      - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
           working_directory: build_clang
@@ -56,6 +65,9 @@ jobs:
       - run:
           command: pwd && ls -l
           working_directory: build_gcc
+      - run:
+          name: git submodule
+          command: git submodule update --init
       - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
