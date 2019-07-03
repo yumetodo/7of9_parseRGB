@@ -19,4 +19,5 @@ bool parseRGB(const char *srcPtr, uint8_t *Red, uint8_t *Green, uint8_t *Blue)
     *Red = re[0] + re[1];
     *Green = re[2] + re[3];
     *Blue = re[4] + re[5];
+    return true;
 }

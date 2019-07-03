@@ -8,6 +8,18 @@ set(CMAKE_C_EXTENSIONS OFF) #...without compiler extensions like gnu++11
 # 1. INTERFACE_INCLUDE_DIRECTORIES にソースディレクトリとビルドディレクトリを自動追加する。
 set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
+if(MSVC)
+  # Force to always compile with W4
+  if(CMAKE_C_FLAGS MATCHES "/W[0-4]")
+    string(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+  else()
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4")
+  endif()
+elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUC)
+  # Update if necessary
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wno-long-long -pedantic")
+endif()
+
 # 2. ライブラリのビルド指定
 add_library(parseRGB STATIC parseRGB.c)
 
