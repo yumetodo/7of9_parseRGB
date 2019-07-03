@@ -21,6 +21,7 @@ set_target_properties(parseRGB PROPERTIES
 # 5. ターゲットのインストール指定
 install(TARGETS parseRGB
     EXPORT parseRGB-export                         # 5.a EXPORT オプションで エクスポート名を指定する
+    ARCHIVE        DESTINATION lib
     LIBRARY        DESTINATION lib            # 5.b ライブラリのインストール先
     INCLUDES       DESTINATION include        # 5.c エクスポート時にincludeパスに含めるパスを指定する
     PUBLIC_HEADER  DESTINATION include/parseRGB)   # ヘッダのインストール先
