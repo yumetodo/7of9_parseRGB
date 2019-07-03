@@ -5,6 +5,7 @@ jobs:
       - image: enumack/buildcontainers:gcc-8.2
     steps:
       - checkout
+      - run: ls -l
       - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
@@ -14,6 +15,7 @@ jobs:
       - image: enumack/buildcontainers:gcc-4.8
     steps:
       - checkout
+      - run: ls -l
       - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
@@ -23,6 +25,7 @@ jobs:
       - image: enumack/buildcontainers:clang-7.0.0
     steps:
       - checkout
+      - run: ls -l
       - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
@@ -32,6 +35,7 @@ jobs:
       - image: enumack/buildcontainers:clang-3.4
     steps:
       - checkout
+      - run: ls -l
       - run:
           name: build
           command: cmake -DCMAKE_C_COMPILER=$CC -DCMAKE_CXX_COMPILER=$CXX .. && make run_test
